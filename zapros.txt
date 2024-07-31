@@ -1,10 +1,11 @@
 Задание № 1.
 Решение:
-SELECT "inDelivery", 
-count(login) 
-FROM "Couriers","Orders" 
-WHERE "inDelivery" = true 
-GROUP BY "inDelivery";
+SELECT login, 
+count("Orders"."inDelivery") 
+FROM "Couriers"
+INNER JOIN "Orders" ON "Couriers".id = "Orders"."courierId" 
+WHERE "Orders"."inDelivery" = true 
+GROUP BY login;
 
 
 Задание № 2.
